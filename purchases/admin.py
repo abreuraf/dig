@@ -1,10 +1,8 @@
 from django.contrib import admin
-
 from .models import Purchase
 
 class PurchaseAdmin(admin.ModelAdmin):
-    #fields = ['part_id','ps','qtd_purchase','price_last'] // select fields show only
-    list_display = ['part_id','quantity_buy']
+    list_display = ['name','ps','quantity_buy','quantity_loss','package','price_unit', 'price_loss', 'price_checkout','part_id']
 
 admin.site.register(Purchase, PurchaseAdmin)
 

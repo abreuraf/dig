@@ -5,6 +5,6 @@ urlpatterns = [
     # Examples:
     # url(r'^$', 'dig.views.home', name='home'),
     # url(r'^blog/', include('blog.urls')),
-
-    url(r'^admin/', include(admin.site.urls)),
+    url(r'^production/', include('production.urls', namespace='production')),
+    url(r'^admin/', include(admin.site.urls)),   
 ]

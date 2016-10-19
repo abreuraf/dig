@@ -1,0 +1,19 @@
+/** {
+    font-family: 'glyphicons-halflings-regular';
+}
+
+@font-face {
+    font-family: 'glyphicons-halflings-regular';
+    src: url('glyphicons/font/glyphicons-halflings-regular.eot');
+    src: url('glyphiconsfont/glyphicons-halflings-regular?#iefix') format('embedded-opentype'),
+         url('glyphiconsfont/glyphicons-halflings-regular.woff') format('woff'),
+         url('glyphiconsfont/glyphicons-halflings-regular.ttf') format('truetype'),
+         url('glyphiconsfont/glyphicons-halflings-regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+
+}*/
+
+h1 {
+    color: #15548e;
+}

@@ -1,3 +1,6 @@
 *.pyc
+digstock/bkp_models.py
 purchases/migrations/
+production/migrations/
 */__init__.py
+bom/
