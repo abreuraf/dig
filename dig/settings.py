@@ -37,7 +37,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'purchases'
+    'purchases',
+    'digstock',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -78,14 +79,16 @@ WSGI_APPLICATION = 'dig.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'dig',
-        'USER': 'dig',
+        'NAME': 'digstock',
+        'USER': 'digstock',
 	'PASSWORD': 'digdigdig',
 	'HOST': 'localhost',
 	'PORT': '3306',
     }
 }
 
+# Supress warning
+SILENCED_SYSTEM_CHECKS = ["models.E012","fields.W342"]
 
 # Internationalization
 # https://docs.djangoproject.com/en/1.8/topics/i18n/
