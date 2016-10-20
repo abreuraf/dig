@@ -9,14 +9,7 @@ class IndexView(generic.ListView):
     template_name = 'index.html'
     context_object_name = 'all_current_productions'
     def get_queryset(self):
-        return Production.objects.order_by('id')
-    def verify_part_bom(self):
-	#juntar com script que já está pronto. 
-	#verificar lista na planilha, comparar com os componentes em digstock
-	#listar os que tem e os que não tem 
-	#gerar lista de compras
-        bom = Production.objects.get(pk=pk).bom_file
-        return bom    
+        return Production.objects.order_by('id') 
 
 def index(request):
     return render(request, 'index.html')

@@ -1,7 +1,6 @@
 {% load staticfiles %}
 
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-<link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
 
 {% if all_current_productions %}
     
@@ -11,16 +10,24 @@
 	<h2>{{ itens.bom_name }} - Versão: {{ itens.bom_version }}</h2>
         <p></p>
         <thead><tr>
-	<th>Date production</th>
-	<th>Date return</th>
+	<th>Production date</th>
+	<th>Expected date</th>
 	<th>Itens em Estoque</th>
+	<th>Itens no BOM</th>
         <th>Itens Faltantes</th>
 	</tr></thead>
         <tbody><tr>
 	<td>{{ itens.date_production }}</td>
 	<td>{{ itens.date_return }}</td>
-	<td>{{ itens.get_bom_itens }}</td>
-        <td>  </td>
+        <td>	
+	    <div>{{ itens.get_part_itens }}</div>
+        </td>	
+        <td>	
+	{% for p in itens.get_bom_itens %}
+	    <div>{{ p|first }} - {{ p|last }}</div>
+	{% endfor %}
+        </td>
+	<td>{{ get_compare_itens }}</td>
         </tr></tbody>
     </table>
     </div>    
