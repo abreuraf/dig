@@ -19,16 +19,14 @@ class Production(models.Model):
         return self.bom_name  
 
     def get_compare_itens(self):
-        parts = self.get_part_itens
-        bom_itens = self.get_bom_itens
-        return len(self.compare_itens(parts, bom_itens)) 
-
-    def compare_itens(self,l1,l2):
+        parts = self.get_part_itens()
+        bom_itens = self.get_bom_itens()
         lf = []
-        for i in l2:
-            if i[0] in l1:
-                lf.append(i[0],i[1])
-        return lf       
+        for i in bom_itens:            
+            for j in parts:
+                if i[0] == j[0]:
+                    lf.append((i[0], (j[1] - i[1])))             
+        return lf
 
     def get_part_itens(self):
         list_parts = []

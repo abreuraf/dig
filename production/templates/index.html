@@ -1,6 +1,6 @@
 {% load staticfiles %}
 
-
+<link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" media="screen">
 
 {% if all_current_productions %}
     
@@ -12,9 +12,9 @@
         <thead><tr>
 	<th>Production date</th>
 	<th>Expected date</th>
-	<th>Itens em Estoque</th>
-	<th>Itens no BOM</th>
-        <th>Itens Faltantes</th>
+	<th>Stock</th>
+	<th>BOM</th>
+        <th>Left for prod</th>
 	</tr></thead>
         <tbody><tr>
 	<td>{{ itens.date_production }}</td>
@@ -27,7 +27,12 @@
 	    <div>{{ p|first }} - {{ p|last }}</div>
 	{% endfor %}
         </td>
-	<td>{{ get_compare_itens }}</td>
+	<td>
+	{% for l in itens.get_compare_itens %}
+	    <div>{{ l }}</div>
+        {% endfor %}
+	
+	</td>
         </tr></tbody>
     </table>
     </div>    
