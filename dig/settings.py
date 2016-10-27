@@ -116,3 +116,5 @@ STATICFILES_DIRS = (
     ),
 )
 
+MEDIA_URL = '/media/'
+

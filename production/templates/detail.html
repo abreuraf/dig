@@ -1,0 +1,31 @@
+{% load staticfiles %}
+
+<link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" media="screen">
+
+
+<div class="container">
+
+<h1>{{ production.bom_name }}</h1>
+
+<table class="table table-striped">
+<thead>
+<tr>
+<th>Nome - P/N</th>
+<th>Qtd BOM</th>
+<th>Qtd Estoque</th>
+<th>Qtd Restante</th>
+</tr>
+</thead>
+<tbody>
+{% for item in production.get_compare_itens %}
+<tr>
+<td>{{ item.0 }}</td>
+<td>{{ item.1 }}</td>
+<td>{{ item.2 }}</td>
+<td>{{ item.3 }}</td>
+</tr>
+{% endfor %}
+</tbody>
+</table>
+
+</div>

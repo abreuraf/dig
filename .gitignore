@@ -4,3 +4,4 @@ purchases/migrations/
 production/migrations/
 */__init__.py
 bom/
+index_bkp.html

@@ -11,6 +11,10 @@ class IndexView(generic.ListView):
     def get_queryset(self):
         return Production.objects.order_by('id') 
 
+class DetailView(generic.DetailView):
+    model = Production
+    template_name = 'detail.html'
+
 def index(request):
     return render(request, 'index.html')
 

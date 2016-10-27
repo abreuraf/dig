@@ -25,7 +25,7 @@ class Production(models.Model):
         for i in bom_itens:            
             for j in parts:
                 if i[0] == j[0]:
-                    lf.append((i[0], (j[1] - i[1])))             
+                    lf.append((i[0], i[1], j[1], (j[1] - i[1])))             
         return lf
 
     def get_part_itens(self):
@@ -46,5 +46,10 @@ class Production(models.Model):
             else:
                 col_q = 20
             list_bom.append((sh.cell_value(rowx=ry, colx=1),sh.cell_value(rowx=ry, colx=col_q))) 
-        return list_bom          
+
+        list_bom.pop(0)
+        list_bom = sorted(list_bom)       
+
+        return list_bom         
+
         

@@ -6,73 +6,28 @@
 
     <div class="container">  
   
-	<div class="page-header">
+	
 	<h1>productions</h1>
-	</div>
+	
 
-	{% for itens in all_current_productions %}
-
-	<div class="col-xs-6">
-	<h3>{{ itens.bom_name }} - Versão: {{ itens.bom_version }}</h3>
 	<table class="table">
 
-	<thead>
-	<tr>	
-	<th>Empresa<th>
-	<th>Contato</th>
-	<th>Informações</th>
-	<th>Envio</th>
-	<th>Retorno</th>
-	</tr>
-	</thead>
-
-	<tbody>
+	{% for itens in all_current_productions %}	
 	<tr>
-	<td>{{ itens.name_enterprise }}</td>
-	<td>{{ itens.contact }}</td>
-	<td>{{ itens.info }}</td>
-	<td>{{ itens.date_production }}</td>
-	<td>{{ itens.date_return }}</td>
+	<td>{{ itens.bom_name }}</td>
+	<td>{{ itens.bom_version }}</td>
+	<td>{{ itens.date_production|date:"d/m/Y H:m" }}</td>
+	<td>{{ itens.date_return|date:"d/m/Y H:m" }}</td>
+	<td>{{ itens.id }}</td>
+	<td><a href="{% url 'production:detail' itens.id %}">detalhes</a></td>
 	</tr>
-	</tbody>
-
-	</table>
-	</div>
-
-	<div class="col-xs-6">
-	<table class="table">
-
-	<thead>
-	<tr>	
-	<th>Estoque<th>
-	<th>BOM</th>
-	<th>Faltam/Restam</th>
-	</tr>
-	</thead>
-
-	<tbody>
-	<tr>
-	<td>{{ itens.get_part_itens }}</td>
-	<td>
-	{% for p in itens.get_bom_itens %}
-	    <div>{{ p|first }} - {{ p|last }}</div>
 	{% endfor %}
-	</td>
-	<td>
-	{% for l in itens.get_compare_itens %}
-	    <div>{{ l }}</div>
-        {% endfor %}
-	</td>
-	</tr>
-	</tbody>
-
+	
 	</table>
-	</div>
-
-	{% endfor %}
 
     </div>    
     
  
 {% endif %}
+
 
