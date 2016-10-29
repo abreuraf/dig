@@ -3,7 +3,7 @@ import pymysql
 
 class Purchase(models.Model):
     name = models.CharField(max_length=255)
-    ps = models.IntegerField()
+    ps = models.CharField(max_length=255)
     quantity_buy = models.IntegerField()
     quantity_loss = models.IntegerField()
     package = models.CharField(max_length=255,null=True)

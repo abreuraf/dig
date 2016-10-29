@@ -2,7 +2,7 @@
 # You'll have to do the following manually to clean this up:
 #   * Rearrange models' order
 #   * Make sure each model has one field with primary_key=True
-#   * Remove `managed = True` lines if you wish to allow Django to create, modify, and delete the table
+#   * Remove `managed = False` lines if you wish to allow Django to create, modify, and delete the table
 # Feel free to rename the models, but don't rename db_table values or field names.
 #
 # Also note: You'll have to insert the output of 'django-admin sqlcustom [app_label]'
@@ -18,7 +18,7 @@ class Cachedimage(models.Model):
     cachefile = models.CharField(db_column='cacheFile', max_length=255)  # Field name made lowercase.
 
     class Meta:
-        managed = True
+        managed = False
         db_table = 'CachedImage'
 
 
@@ -27,7 +27,7 @@ class Cronlogger(models.Model):
     cronjob = models.CharField(unique=True, max_length=255)
 
     class Meta:
-        managed = True
+        managed = False
         db_table = 'CronLogger'
 
 
@@ -42,7 +42,7 @@ class Distributor(models.Model):
     skuurl = models.CharField(max_length=255, blank=True, null=True)
 
     class Meta:
-        managed = True
+        managed = False
         db_table = 'Distributor'
 
 
@@ -65,7 +65,7 @@ class Fosuser(models.Model):
     email = models.CharField(max_length=255, blank=True, null=True)
 
     class Meta:
-        managed = True
+        managed = False
         db_table = 'FOSUser'
 
 
@@ -75,7 +75,7 @@ class Footprint(models.Model):
     description = models.TextField(blank=True, null=True)
 
     class Meta:
-        managed = True
+        managed = False
         db_table = 'Footprint'
 
 
@@ -91,7 +91,7 @@ class Footprintattachment(models.Model):
     created = models.DateTimeField()
 
     class Meta:
-        managed = True
+        managed = False
         db_table = 'FootprintAttachment'
 
 
@@ -106,7 +106,7 @@ class Footprintcategory(models.Model):
     categorypath = models.TextField(db_column='categoryPath', blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
-        managed = True
+        managed = False
         db_table = 'FootprintCategory'
 
 
@@ -122,7 +122,7 @@ class Footprintimage(models.Model):
     created = models.DateTimeField()
 
     class Meta:
-        managed = True
+        managed = False
         db_table = 'FootprintImage'
 
 
@@ -136,7 +136,7 @@ class Manufacturer(models.Model):
     fax = models.CharField(max_length=255, blank=True, null=True)
 
     class Meta:
-        managed = True
+        managed = False
         db_table = 'Manufacturer'
 
 
@@ -152,7 +152,7 @@ class Manufacturericlogo(models.Model):
     created = models.DateTimeField()
 
     class Meta:
-        managed = True
+        managed = False
         db_table = 'ManufacturerICLogo'
 
 
@@ -195,7 +195,7 @@ class Partattachment(models.Model):
     isimage = models.IntegerField(db_column='isImage', blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
-        managed = True
+        managed = False
         db_table = 'PartAttachment'
 
 
@@ -210,7 +210,7 @@ class Partcategory(models.Model):
     categorypath = models.TextField(db_column='categoryPath', blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
-        managed = True
+        managed = False
         db_table = 'PartCategory'
 
 
@@ -223,7 +223,7 @@ class Partdistributor(models.Model):
     sku = models.CharField(max_length=255, blank=True, null=True)
 
     class Meta:
-        managed = True
+        managed = False
         db_table = 'PartDistributor'
 
 
@@ -239,7 +239,7 @@ class Partimage(models.Model):
     created = models.DateTimeField()
 
     class Meta:
-        managed = True
+        managed = False
         db_table = 'PartImage'
 
 
@@ -255,7 +255,7 @@ class Partkeepruser(models.Model):
     protected = models.IntegerField()
 
     class Meta:
-        managed = True
+        managed = False
         db_table = 'PartKeeprUser'
         unique_together = (('username', 'provider_id'),)
 
@@ -266,7 +266,7 @@ class Partmanufacturer(models.Model):
     partnumber = models.CharField(db_column='partNumber', max_length=255, blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
-        managed = True
+        managed = False
         db_table = 'PartManufacturer'
 
 
@@ -280,7 +280,7 @@ class Partparameter(models.Model):
     siprefix = models.ForeignKey('Siprefix', db_column='siPrefix_id', blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
-        managed = True
+        managed = False
         db_table = 'PartParameter'
 
 
@@ -290,7 +290,7 @@ class Partunit(models.Model):
     is_default = models.IntegerField()
 
     class Meta:
-        managed = True
+        managed = False
         db_table = 'PartUnit'
 
 
@@ -300,7 +300,7 @@ class Project(models.Model):
     description = models.CharField(max_length=255, blank=True, null=True)
 
     class Meta:
-        managed = True
+        managed = False
         db_table = 'Project'
 
 
@@ -316,7 +316,7 @@ class Projectattachment(models.Model):
     created = models.DateTimeField()
 
     class Meta:
-        managed = True
+        managed = False
         db_table = 'ProjectAttachment'
 
 
@@ -327,7 +327,7 @@ class Projectpart(models.Model):
     remarks = models.CharField(max_length=255, blank=True, null=True)
 
     class Meta:
-        managed = True
+        managed = False
         db_table = 'ProjectPart'
 
 
@@ -335,7 +335,7 @@ class Schemaversions(models.Model):
     version = models.CharField(primary_key=True, max_length=255)
 
     class Meta:
-        managed = True
+        managed = False
         db_table = 'SchemaVersions'
 
 
@@ -346,7 +346,7 @@ class Siprefix(models.Model):
     base = models.IntegerField()
 
     class Meta:
-        managed = True
+        managed = False
         db_table = 'SiPrefix'
 
 
@@ -356,7 +356,7 @@ class Statisticsnapshot(models.Model):
     categories = models.IntegerField()
 
     class Meta:
-        managed = True
+        managed = False
         db_table = 'StatisticSnapshot'
 
 
@@ -366,7 +366,7 @@ class Statisticsnapshotunit(models.Model):
     partunit = models.ForeignKey(Partunit, db_column='partUnit_id', blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
-        managed = True
+        managed = False
         db_table = 'StatisticSnapshotUnit'
 
 
@@ -380,7 +380,7 @@ class Stockentry(models.Model):
     comment = models.CharField(max_length=255, blank=True, null=True)
 
     class Meta:
-        managed = True
+        managed = False
         db_table = 'StockEntry'
 
 
@@ -389,7 +389,7 @@ class Storagelocation(models.Model):
     name = models.CharField(unique=True, max_length=255)
 
     class Meta:
-        managed = True
+        managed = False
         db_table = 'StorageLocation'
 
 
@@ -404,7 +404,7 @@ class Storagelocationcategory(models.Model):
     categorypath = models.TextField(db_column='categoryPath', blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
-        managed = True
+        managed = False
         db_table = 'StorageLocationCategory'
 
 
@@ -420,7 +420,7 @@ class Storagelocationimage(models.Model):
     storagelocation = models.ForeignKey(Storagelocation, db_column='storageLocation_id', unique=True, blank=True, null=True)  # Field name made lowercase.
 
     class Meta:
-        managed = True
+        managed = False
         db_table = 'StorageLocationImage'
 
 
@@ -432,7 +432,7 @@ class Systemnotice(models.Model):
     type = models.CharField(max_length=255)
 
     class Meta:
-        managed = True
+        managed = False
         db_table = 'SystemNotice'
 
 
@@ -441,7 +441,7 @@ class Systempreference(models.Model):
     preferencevalue = models.TextField(db_column='preferenceValue')  # Field name made lowercase.
 
     class Meta:
-        managed = True
+        managed = False
         db_table = 'SystemPreference'
 
 
@@ -456,7 +456,7 @@ class Tempimage(models.Model):
     created = models.DateTimeField()
 
     class Meta:
-        managed = True
+        managed = False
         db_table = 'TempImage'
 
 
@@ -471,7 +471,7 @@ class Tempuploadedfile(models.Model):
     created = models.DateTimeField()
 
     class Meta:
-        managed = True
+        managed = False
         db_table = 'TempUploadedFile'
 
 
@@ -479,7 +479,7 @@ class Tipoftheday(models.Model):
     name = models.CharField(max_length=255)
 
     class Meta:
-        managed = True
+        managed = False
         db_table = 'TipOfTheDay'
 
 
@@ -488,7 +488,7 @@ class Tipofthedayhistory(models.Model):
     name = models.CharField(max_length=255)
 
     class Meta:
-        managed = True
+        managed = False
         db_table = 'TipOfTheDayHistory'
 
 
@@ -497,7 +497,7 @@ class Unit(models.Model):
     symbol = models.CharField(max_length=255)
 
     class Meta:
-        managed = True
+        managed = False
         db_table = 'Unit'
 
 
@@ -506,7 +506,7 @@ class Unitsiprefixes(models.Model):
     siprefix = models.ForeignKey(Siprefix)
 
     class Meta:
-        managed = True
+        managed = False
         db_table = 'UnitSiPrefixes'
         unique_together = (('unit_id', 'siprefix_id'),)
 
@@ -517,7 +517,7 @@ class Userpreference(models.Model):
     preferencevalue = models.TextField(db_column='preferenceValue')  # Field name made lowercase.
 
     class Meta:
-        managed = True
+        managed = False
         db_table = 'UserPreference'
         unique_together = (('preferenceKey', 'user_id'),)
 
@@ -527,5 +527,5 @@ class Userprovider(models.Model):
     editable = models.IntegerField()
 
     class Meta:
-        managed = True
+        managed = False
         db_table = 'UserProvider'

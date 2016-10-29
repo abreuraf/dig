@@ -5,6 +5,7 @@ from purchases.models import Purchase
 import os, xlrd, sys
 
 
+
 class Production(models.Model):
     bom_name = models.CharField(max_length=255)
     bom_file = models.FileField(upload_to='bom', default=True)
