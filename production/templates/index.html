@@ -7,7 +7,7 @@
     <div class="container">  
   
 	
-	<h1>productions</h1>
+	<!-- <h1>productions</h1>-->
 
 	<table class="table">
 
@@ -17,8 +17,8 @@
 	<td>{{ itens.bom_version }}</td>
 	<td>{{ itens.date_production|date:"d/m/Y H:m" }}</td>
 	<td>{{ itens.date_return|date:"d/m/Y H:m" }}</td>
-	<td>{{ itens.id }}</td>
-	<td><a href="{% url 'production:detail' itens.id %}">detalhes</a></td>
+	<td>Quantity<input type="number" ></td>
+	<td><a href="{% url 'production:detail' itens.id %}">detail</a></td>
 	</tr>
 	{% endfor %}
 	

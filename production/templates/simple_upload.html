@@ -1,15 +1,63 @@
 {% load static %}
 
+<link href="{% static 'bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" media="screen">
+
 {% block content %}
-  <form method="post" enctype="multipart/form-data">
+
+<div class="container">
+
+<a href="{% url 'production:index' %}">Return to home</a>
+
+  <form method="post" enctype="multipart/form-data" class="form-horizontal">
     {% csrf_token %}
-    <input type="file" name="myfile">
-    <button type="submit">Upload</button>
+
+	<div class="form-group">
+	    <label class="control-label col-sm-2" for="myfile">BOM file:</label>
+	    <div class="col-sm-10">
+	      <input type="file" class="form-control-file" name="myfile">
+	    </div>
+	</div>
+	<div class="form-group">
+	    <label class="control-label col-sm-2" for="name">BOM name:</label>
+	    <div class="col-sm-10">
+	      <input type="text" class="form-control" name="name">
+	    </div>
+	</div>
+	<div class="form-group">
+	    <label class="control-label col-sm-2" for="version">BOM version:</label>
+	    <div class="col-sm-10">
+	      <input type="text" class="form-control" id="version" placeholder="">
+	    </div>
+	</div>
+
+	<div class="form-group">
+	<label class="control-label col-sm-2" for="contact">Contact:</label>
+	<div class="col-sm-10">
+	<input type="text" class="form-control" id="contact" placeholder="">
+	</div>
+	</div>
+
+	<div class="form-group">
+	    <label class="control-label col-sm-2" for="email">Email:</label>
+	    <div class="col-sm-10">
+	    <input type="email" class="form-control" id="email" placeholder="">
+	    </div>
+	</div>
+
+	<div class="form-group">
+	    <div></div>
+	    <div class="col-sm-10">
+	    <button type="submit" class="btn btn-primary">Upload</button>
+	    </div>
+	</div>
+
   </form>
 
   {% if uploaded_file_url %}
-    <p>File uploaded at: <a href="{{ uploaded_file_url }}">{{ uploaded_file_url }}</a></p>
+  <p>File uploaded at: <a href="{{ uploaded_file_url }}">{{ uploaded_file_url }}</a></p>
   {% endif %}
 
-  <p><a href="{% url 'production:index' %}">Return to home</a></p>
+  
+</div>
 {% endblock %}
+

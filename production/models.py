@@ -29,6 +29,13 @@ class Production(models.Model):
                     lf.append((i[0], i[1], j[1], (j[1] - i[1])))             
         return lf
 
+    def get_compare_itens(self, qty):
+        compare = []
+        compare = self.get_compare_itens()
+        for x in range(compare):
+            x[0] *= qty
+        return 
+
     def get_part_itens(self):
         list_parts = []
         for n in Part.objects.all():

@@ -2,11 +2,11 @@ from django.shortcuts import render, render_to_response, HttpResponseRedirect
 from django.conf import settings
 from django.views import generic
 from django import http
+from django.core.files.storage import FileSystemStorage
+from django.conf import settings
 from .models import Production
 from .forms import UploadFileForm
 from .functions import handle_uploaded_file
-from django.core.files.storage import FileSystemStorage
-from django.conf import settings
 
 
 class IndexView(generic.ListView):
