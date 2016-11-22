@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% if all_current_productions %}    
+  
+	
+	<h1>productions</h1>
+
+	<table class="table">
+
+	{% for itens in all_current_productions %}	
+	<tr>
+	<td>{{ itens.bom_name }}</td>
+	<td>{{ itens.bom_version }}</td>
+	<td>{{ itens.date_production|date:"d/m/Y H:m" }}</td>
+	<td>{{ itens.date_return|date:"d/m/Y H:m" }}</td>
+	<td>Quantity<input type="number" ></td>
+	<td><a href="{% url 'production:detail' itens.id %}">detail</a></td>
+	</tr>
+	{% endfor %}
+	
+	</table>	
+
+	<a href="{% url 'production:upload' %}" class="btn btn-default">New production</a>
+
+
+      
+    
+ 
+{% endif %}
+
+{% endblock %}
+

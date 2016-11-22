@@ -8,13 +8,14 @@ import os, xlrd, sys
 
 class Production(models.Model):
     bom_name = models.CharField(max_length=255)
-    bom_file = models.FileField(upload_to='bom', default=True)
+    bom_file = models.FileField(upload_to='bom/')
     bom_version = models.CharField(max_length=255)
     name_enterprise = models.CharField(max_length=255)
     contact = models.CharField(max_length=255)
     info = models.CharField(max_length=255)
     date_production = models.DateTimeField()
     date_return = models.DateTimeField()
+    
 
     def __str__(self):
         return self.bom_name  
@@ -28,13 +29,6 @@ class Production(models.Model):
                 if i[0] == j[0]:
                     lf.append((i[0], i[1], j[1], (j[1] - i[1])))             
         return lf
-
-    def get_compare_itens(self, qty):
-        compare = []
-        compare = self.get_compare_itens()
-        for x in range(compare):
-            x[0] *= qty
-        return 
 
     def get_part_itens(self):
         list_parts = []

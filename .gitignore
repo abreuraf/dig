@@ -4,4 +4,5 @@ production/migrations/
 digstock/migrations
 */__init__.py
 media/
-
+run.sh
+*dashboard*
